@@ -12,7 +12,7 @@
 killTomcat()
 {
     pid=`ps -ef|grep tomcat|grep java|awk '{print $2}'`
-    echo "tomcat Id list :$pid"
+    echo "kill last tomcat pid list :$pid"
     if [ "$pid" = "" ]
     then
       echo "no tomcat pid alive"
@@ -40,6 +40,8 @@ mv order.war ROOT.war
 # 启动Tomcat
 cd $TOMCAT_APP_PATH/
 sh bin/startup.sh
+pid=`ps -ef|grep tomcat|grep java|awk '{print $2}'`
+echo "当前tomcat的PID: $pid"
 
 
 
